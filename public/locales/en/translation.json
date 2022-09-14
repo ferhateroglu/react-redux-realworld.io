@@ -1,0 +1,9 @@
+{
+    "nav":{
+        "home": "Home",
+        "signIn":"Sign In",
+        "signUp": "Sign Up",
+        "newPost": "New Post",
+        "settings": "Settings"
+    }
+}

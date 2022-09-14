@@ -1,0 +1,62 @@
+.dashboard h1{
+    color: var(--text);
+}
+.area-chart{
+    
+    margin-top: 20px;
+    background-color:var(--bg-widget);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.area-chart .head{
+    padding: 10px;
+}
+.area-chart .head h4{
+    color: var(--text);
+    padding-left: 10px;
+}
+.area-chart .body{
+    padding: 10px;
+    height: 300px;
+}
+
+.radar-chart{
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color:var(--bg-widget);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.radar-chart .head{
+    padding: 10px;
+}
+.radar-chart .head h4{
+    color: var(--text);
+    padding-left: 10px;
+}
+.radar-chart .body{
+    padding: 10px;
+    height: 300px;
+}
+
+
+.bar-chart{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color:var(--bg-widget);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.bar-chart .head{
+    padding: 10px;
+}
+.bar-chart .head h4{
+    color: var(--text);
+    padding-left: 10px;
+}
+.bar-chart .body{
+    padding: 10px;
+    height: 300px;
+}

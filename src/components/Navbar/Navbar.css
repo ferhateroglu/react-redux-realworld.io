@@ -1,0 +1,84 @@
+  
+.topnav {
+    overflow: hidden;
+
+  }
+  .topnav #logo{
+    font-weight: 700;
+    font-size: 22px;
+    color: #5cb85c;
+    padding-left: 0px;
+  }
+  
+  .topnav a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-decoration: none;
+    color: lightgray;
+  }
+  .topnav a:hover{
+    color: rgb(140, 140, 140);
+
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+
+
+
+  input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 26px;
+    background: var(--bg-second);
+    display: inline-block;
+    padding: 14px 16px;
+    margin-top: 12.75px;
+    margin-bottom: 12.75px;
+    margin-left: 16px;
+    border-radius: 100px;
+    position: relative;
+    float: right;
+  }
+  
+  label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #55a555;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  input:checked + label {
+    background: var(--bg-second);
+  }
+  
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label:active:after {
+    width: 25px;
+  }

@@ -1,0 +1,9 @@
+{
+    "nav":{
+        "home": "Ana Sayfa",
+        "signIn":"Giriş Yap",
+        "signUp": "Kayıt Ol",
+        "newPost": "Yeni Gönderi",
+        "settings": "Ayarlar"
+    }
+}

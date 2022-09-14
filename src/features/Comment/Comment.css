@@ -1,0 +1,106 @@
+.banner-article{
+    background-color: var(--bg-banner) !important;
+    text-align: left;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+
+}
+.banner-article h1{
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.info-article{
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.btn-article-light{
+    font-size: 14px;
+    background-color: transparent;
+    color: rgb(162, 162, 162);
+    padding: 5px 10px;
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 4px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.btn-article-green{
+    font-size: 14px;
+    background-color: transparent;
+    color: #5cb85c;
+    padding: 5px 10px;
+    border: 1px solid #5cb85c;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.btn-article-red{
+    font-size: 14px;
+    background-color: #333333;
+    color: rgb(188, 17, 17);
+    padding: 5px 10px;
+    border: 1px solid  rgb(188, 17, 17);
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.article-post-detail{
+    margin-top: 30px;
+    font-family: "source serif pro", serif;
+}
+/*comment from*/
+.comment-card{
+    width: 70%;
+    margin-top: 20px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+.comment-body textarea{
+    max-width: 100%;
+    width: 100%;
+    height: 112px;
+    border: none;
+    padding: 20px;
+}
+.comment-body p{
+    padding: 20px;
+    font-size: 16px;
+}
+.comment-footer{
+    background-color: var(--bg-second);
+    padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: -10px;
+    padding-bottom: 3px;
+    justify-content: space-between;
+}
+.comment-footer img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+.comment-footer button{
+    float: right;
+    background-color: #61c061;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+.delete-comment button{
+    background-color: lightgray;
+    color: #333333;
+}
+
+.article-main{
+    margin-bottom: 40px;
+}

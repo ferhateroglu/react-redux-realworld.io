@@ -1,0 +1,29 @@
+.new-post{
+    padding: 60px;
+}
+.new-post textarea, 
+.new-post input{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+.new-post form >*:focus{
+    outline: 1px solid skyblue;
+}
+
+.new-post form textarea{
+    height: 200px;
+    resize: vertical;
+}
+.new-post button{
+    float: right;
+    padding: 15px 20px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}

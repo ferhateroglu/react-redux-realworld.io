@@ -1,0 +1,38 @@
+.sign{
+    text-align: center;
+}
+.sign a{
+    display: inline-block;
+    margin-bottom: 20px ;
+    text-decoration: none;
+    color: #5cb85c;
+    font-size: 16px;
+}
+.sign h1{
+    font-weight: lighter;
+}
+.sign form>*{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 15px 20px;
+}
+.sign input{
+    width: 100%;
+}
+
+.sign input:focus{
+    outline: 1px solid rgb(111, 186, 215);
+}
+
+.sign button{
+    float: right;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+}
+.sign button:hover{
+    background-color: #46a146;
+}

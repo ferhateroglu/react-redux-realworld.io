@@ -1,0 +1,39 @@
+.sign h1{
+    color: var(--text);
+}
+.sign textarea{
+    resize: vertical;
+    width: 100%;
+    height: 200px;
+    display: block;
+    font-family: "source sans serif", sans-serif;
+}
+.sign textarea:focus{
+    outline: 1px solid rgb(79, 177, 215);
+}
+.settings-page textarea,
+.settings-page input{
+    font-size: 16px !important;
+}
+.clear{
+    width: 100%;
+    height: 55px;
+    margin-bottom: 20px;
+}
+.btn-logout{
+    float: left !important ;
+    background-color: #B85C5C !important;
+    color: #fff !important;
+    border: 1px solid #B85C5C;
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.btn-logout:hover{
+    background-color: #bf2222 !important;
+    color: #fff !important;
+}
+.error{
+    color: red;
+}
