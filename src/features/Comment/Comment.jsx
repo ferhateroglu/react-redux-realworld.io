@@ -112,9 +112,9 @@ function Comment() {
       if(!authInfo.isAuth){
         return <>
         <button onClick={()=>{navigate("/signUp",)}} className='btn-article-light'>Sign Up</button>
-        <span> or </span>
+        <span className='text'> or </span>
         <button onClick={()=>{navigate("/signIn",)}} className='btn-article-green'>Sign In</button>
-        <span> to add comments on this article.</span>
+        <span className='text'> to add comments on this article.</span>
         </>
       }
       else{
@@ -187,7 +187,7 @@ function Comment() {
                 {authInfo.isAuth && profileData && <>
                   <div className="comment-card">
                   <div className="comment-body">
-                    <textarea value={userComment} onChange={handleComment} placeholder='Write a comment...'></textarea>
+                    <textarea  value={userComment} onChange={handleComment} placeholder='Write a comment...'></textarea>
                   </div>
                   <div className="comment-footer">
                     <img src={profileData.image} alt="" />
@@ -201,7 +201,7 @@ function Comment() {
                   return <>
                     <div className="comment-card">
                       <div className="comment-body">
-                        <p>{item.body}</p>
+                        <p className='text'>{item.body}</p>
                       </div>
                       <div className="comment-footer flex-row">
                         <div className='article-author'>

@@ -51,6 +51,7 @@
 .article-post-detail{
     margin-top: 30px;
     font-family: "source serif pro", serif;
+    color: var(--text);
 }
 /*comment from*/
 .comment-card{

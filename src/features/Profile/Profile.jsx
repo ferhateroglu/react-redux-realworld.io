@@ -55,6 +55,9 @@ function Profile() {
   const goToDashboard = ()=>{
     navigate("/dashboard")
   }
+  const goToLogIn = ()=>{
+    navigate("/signIn")
+  }
 
   const followSettingBtn = () => {
     if (authInfo.isAuth) {
@@ -87,7 +90,12 @@ function Profile() {
         )
       }
     }
-    return (<button>asdfasda</button>)
+    return (<button
+      onClick={goToLogIn}
+      style={{float: "right", marginRight: "80px" }}
+      className='btn-article-light'>
+      {`${profileData.following ? "Unfollow" : "Follow"} ${profileData.username}`}
+    </button>)
   }
   return (
     <>
