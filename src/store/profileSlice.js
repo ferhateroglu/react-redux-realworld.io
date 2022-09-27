@@ -69,7 +69,7 @@ export const ProfileSlice = createSlice({
             console.log("2")
             state.updateProfileLoading = false;
             state.updateProfileData = action.payload.data.user;
-            state.updateProfileError = "";
+            state.updateProfileError = false;
 
         })
         builder.addCase(updateProfile.rejected, (state,action)=>{

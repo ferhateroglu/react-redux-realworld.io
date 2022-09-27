@@ -22,7 +22,11 @@ export const AuthSlice = createSlice({
     },
     updateToken: (state,action)=>{
       state.currentUser.token= action.payload;
-    }
+    },
+    updateUserName: (state,action)=>{
+      state.currentUser.username= action.payload;
+      console.log(state.currentUser.username)
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
@@ -44,4 +48,4 @@ export const AuthSlice = createSlice({
 });
 
 export default AuthSlice.reducer;
-export const { logOut, updateToken } = AuthSlice.actions;
+export const { logOut, updateToken,updateUserName } = AuthSlice.actions;

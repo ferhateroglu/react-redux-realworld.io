@@ -30,22 +30,31 @@ export const fetchArticleBySlug = createAsyncThunk(
   }
 );
 
-export const createArticle = createAsyncThunk("/articles/create",({token, article},{rejectWithValue})=>{
-  const config = {headers: { Authorization: `Token ${token ? token : ""}` }};
-  return axios
-  .post("https://api.realworld.io/api/articles",{article},config)
-  .then((response) => response)
-  .catch((err) => rejectWithValue(err));
+export const createArticle = createAsyncThunk(
+  "/articles/create",
+  ({ token, article }, { rejectWithValue }) => {
+    const config = {
+      headers: { Authorization: `Token ${token ? token : ""}` },
+    };
+    return axios
+      .post("https://api.realworld.io/api/articles", { article }, config)
+      .then((response) => response)
+      .catch((err) => rejectWithValue(err));
+  }
+);
 
-})
-
-export const deleteArticle = createAsyncThunk("/article/slug/delete",({token, slug},{rejectWithValue})=>{
-  const config = {headers: { Authorization: `Token ${token ? token : ""}` }};
-  return axios
-  .delete(`https://api.realworld.io/api/articles/${slug}`,config)
-  .then((response) => response)
-  .catch((err) => rejectWithValue(err));
-})
+export const deleteArticle = createAsyncThunk(
+  "/article/slug/delete",
+  ({ token, slug }, { rejectWithValue }) => {
+    const config = {
+      headers: { Authorization: `Token ${token ? token : ""}` },
+    };
+    return axios
+      .delete(`https://api.realworld.io/api/articles/${slug}`, config)
+      .then((response) => response)
+      .catch((err) => rejectWithValue(err));
+  }
+);
 
 export const favoriteArticle = createAsyncThunk(
   "articles/slug/favorite",
@@ -107,7 +116,6 @@ export const createComment = createAsyncThunk(
 export const deleteComment = createAsyncThunk(
   "articles/slug/deletecomments",
   ({ token, slug, id }, { rejectWithValue }) => {
-    console.log(slug+""+id)
     const config = {
       headers: { Authorization: `Token ${token ? token : ""}` },
     };
@@ -120,6 +128,17 @@ export const deleteComment = createAsyncThunk(
       .catch((err) => rejectWithValue(err));
   }
 );
+
+export const getTags = createAsyncThunk("tags", (token, { rejectWithValue }) => {
+  const config = {
+    headers: { Authorization: `Token ${token ? token : ""}` },
+  };
+  return axios
+    .get("https://api.realworld.io/api/tags", config)
+    .then((res) => res)
+    .catch((err) => rejectWithValue(err));
+});
+
 const articleSlice = createSlice({
   name: "articles",
   initialState,
@@ -236,13 +255,12 @@ const articleSlice = createSlice({
       state.deleteCommentError = action.payload;
     });
 
-
     //createArticle
     builder.addCase(createArticle.pending, (state) => {
       state.createArticleLoading = true;
     });
     builder.addCase(createArticle.fulfilled, (state, action) => {
-      state.createArticleLoading = false
+      state.createArticleLoading = false;
       state.createArticleData = action.payload;
       state.createArticleError = "";
     });
@@ -252,25 +270,36 @@ const articleSlice = createSlice({
       state.createArticleError = action.payload;
     });
 
-
     //delete article
     builder.addCase(deleteArticle.pending, (state) => {
-      console.log("1")
       state.deleteArticleLoading = true;
     });
     builder.addCase(deleteArticle.fulfilled, (state, action) => {
-      console.log("2")
-      state.deleteArticleLoading = false
+      state.deleteArticleLoading = false;
       state.deleteArticleData = action.payload;
       state.deleteArticleError = "";
     });
     builder.addCase(deleteArticle.rejected, (state, action) => {
-      console.log("3")
       state.deleteArticleLoading = false;
       state.deleteArticleData = "";
       state.deleteArticleError = action.payload;
     });
 
+    //get tags
+    builder.addCase(getTags.pending, (state) => {
+      state.getTagsLoading = true;
+    });
+    builder.addCase(getTags.fulfilled, (state, action) => {
+      state.getTagsLoading = false;
+      console.log(action.payload.data.tags)
+      state.getTagsData = action.payload.data.tags;
+      state.getTagsError = "";
+    });
+    builder.addCase(getTags.rejected, (state, action) => {
+      state.getTagsLoading = false;
+      state.getTagsData = "";
+      state.getTagsError = action.payload;
+    });
   },
 });
 

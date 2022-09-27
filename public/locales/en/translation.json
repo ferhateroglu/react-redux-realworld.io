@@ -5,5 +5,12 @@
         "signUp": "Sign Up",
         "newPost": "New Post",
         "settings": "Settings"
+    },
+    "home":{
+        "yourFeed": "Your Feed",
+        "globalFeed": "Global Feed",
+        "readMore": "Read more...",
+        "popularTags": "Popular Tags",
+        "slug": "A place to share your knowledge."
     }
 }

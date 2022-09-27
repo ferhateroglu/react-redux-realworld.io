@@ -16,7 +16,6 @@ function Profile() {
   const { articles, loading } = useSelector(state => state.article)
   const { profileData, profileLoading, followLoading, unFollowLoading } = useSelector(state => state.profile)
 
-
   const [activeToggle, setactiveToggle] = useState("MyArticles");
 
   const { username } = useParams();//Gerome

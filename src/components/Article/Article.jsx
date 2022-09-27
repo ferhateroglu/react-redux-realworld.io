@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link,useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from "react-i18next"
+
 import {filter, favoriteArticle, unFavoriteArticle,fetchArticles} from "../../store/articleSlice"
 import {fetchFeed} from '../../store/feedSlice';
 import "./Article.css"
@@ -10,6 +12,7 @@ import { useState } from 'react';
 function Article(props) {
   const dispatch = useDispatch();
 
+  const { t, i18n } = useTranslation();
   const {articles} = useSelector(state => state.article);
   const { currentUser, isAuth } = useSelector(state => state.auth)
   const {item} = props;
@@ -78,7 +81,7 @@ function Article(props) {
         </div>
         {/*post detail*/}
         <div className='post-detail flex-row'>
-          <Link className='post-link' to={"/article/"+item.slug}>Read more...</Link>
+          <Link className='post-link' to={"/article/"+item.slug}> {t('home.readMore')} </Link>
           <div>
           {item.tagList.map((tag, index)=>(
             <button key={index} value={tag} onClick={filterArticles} className='btn-tag-post'>{tag}</button>

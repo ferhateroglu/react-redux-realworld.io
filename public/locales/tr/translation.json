@@ -5,5 +5,14 @@
         "signUp": "Kayıt Ol",
         "newPost": "Yeni Gönderi",
         "settings": "Ayarlar"
+    },
+    "home":{
+        "yourFeed": "İçeriklerin",
+        "globalFeed": "Global İçerikler",
+        "readMore": "Daha fazla...",
+        "popularTags": "Popüler Etiketler",
+        "slug": "Bilginizi paylaşabileceğiniz bir yer."
+
     }
+
 }

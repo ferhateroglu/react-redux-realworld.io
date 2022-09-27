@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
-import { logOut,updateToken } from '../../store/AuthSlice'
+import { logOut,updateToken,updateUserName } from '../../store/AuthSlice'
 import { fetchProfile, updateProfile,resetUpdateData } from '../../store/ProfileSlice'
 import "./Settings.css"
 
@@ -10,8 +10,9 @@ function Settings() {
   const Navigate = useNavigate()
 
   const authInfo = useSelector(state => state.auth)
-  const {profileData, profileLoading,updateProfileData ,updateProfileError}  = useSelector(state => state.profile)
+  let {profileData, profileLoading,updateProfileData ,updateProfileError}  = useSelector(state => state.profile)
 
+  const [err, setErr] = useState(false)
   const [user, setUser] = useState({
     email: "",
     username: "",
@@ -22,7 +23,9 @@ function Settings() {
 
   useEffect(() => {
     fetchProfileData()
+    setErr(false)
   }, [])
+
   useEffect(()=>{
     if(profileData){
       setUser({
@@ -33,14 +36,17 @@ function Settings() {
         image: profileData.image
       })
     }
+    
   },[profileData])
 
   useEffect(()=>{
-    if(updateProfileData){
+    if(updateProfileData && !updateProfileError){
+      dispatch(updateUserName(user.username))
       dispatch(updateToken(updateProfileData.token))
       dispatch(resetUpdateData())
       Navigate(`/@${user.username}`)
     }
+    
   },[updateProfileData])
 
   const fetchProfileData = async ()=>{
@@ -62,15 +68,18 @@ function Settings() {
   }
 
   const handleSubmit = async (e)=>{
+
     e.preventDefault()
     const newUser = {}
     const keys = Object.keys(user)
     keys.map((key)=>{
-      if(user[key] !=""){
+      if(user[key] !==""){
        newUser[key] =  user[key];
       }
     })
+    
     await dispatch(updateProfile({user:newUser, token: authInfo.currentUser.token}))
+    setErr(true)
   }
   const fetchEnd = ()=>{
     return (
@@ -79,7 +88,7 @@ function Settings() {
         <div className="flex-row justify-center">
           <div className="sign settings-page col-6">
             <h1>Your Settings</h1>
-            {updateProfileError && <p className='error'>{updateProfileError}</p>}
+            { err && updateProfileError && <p className='error'>{updateProfileError}</p>}
             <form action="">
               <input
                 name='image'
