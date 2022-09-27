@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from "react-redux"
-import { fetchArticleBySlug, favoriteArticle, unFavoriteArticle, createComment, fetchComments, deleteComment,deleteArticle } from "../../store/articleSlice"
+import { fetchArticleBySlug, favoriteArticle, unFavoriteArticle, createComment, fetchComments, deleteComment, deleteArticle } from "../../store/articleSlice"
 import { followProfile, unFollowProfile, fetchProfile } from '../../store/ProfileSlice';
 
 import "./Comment.css";
@@ -33,7 +33,7 @@ function Comment() {
     fetchAllComments();
     fetchArticles();
     fetchProfileData();
-    
+
   }, [])
 
   const fetchProfileData = () => {
@@ -91,46 +91,45 @@ function Comment() {
     setUserComment("");
     fetchAllComments();
   }
-  const handleDeleteComment = async (e) => {
-    const id = e.target.value;
+  const handleDeleteComment = async (id) => {
     await dispatch(deleteComment({ token: authInfo.currentUser.token, id, slug }))
     fetchAllComments();
   }
 
   const handleEditArticle = () => {
-    navigate("/editor",{state: {articleBySlugData}})
+    navigate("/editor", { state: { articleBySlugData } })
   }
 
   const handleDeleteArticle = async () => {
-    await dispatch(deleteArticle({ token: authInfo.currentUser.token,slug }))
+    await dispatch(deleteArticle({ token: authInfo.currentUser.token, slug }))
     navigate("/",);
   }
 
 
 
   const buttons = () => {
-      if(!authInfo.isAuth){
-        return <>
-        <button onClick={()=>{navigate("/signUp",)}} className='btn-article-light'>Sign Up</button>
+    if (!authInfo.isAuth) {
+      return <>
+        <button onClick={() => { navigate("/signUp",) }} className='btn-article-light'>Sign Up</button>
         <span className='text'> or </span>
-        <button onClick={()=>{navigate("/signIn",)}} className='btn-article-green'>Sign In</button>
+        <button onClick={() => { navigate("/signIn",) }} className='btn-article-green'>Sign In</button>
         <span className='text'> to add comments on this article.</span>
-        </>
-      }
-      else{
-        if (authInfo.currentUser.username === articleBySlugData.author.username) {
-          return <>
+      </>
+    }
+    else {
+      if (authInfo.currentUser.username === articleBySlugData.author.username) {
+        return <>
           <button onClick={handleEditArticle} className='btn-article-light'>Edit Article</button>
           <button onClick={handleDeleteArticle} className='btn-article-red'>Delete Article</button>
-           </>
-         }
-         else {
-           return <>
-               <button onClick={handleFollow} className='btn-article-light'>{articleBySlugData.author.following ? "Unfollow" : "Follow"} Gerome</button>
-               <button onClick={handleFavorite} className='btn-article-green'>{articleBySlugData.favorited ? "Unfavorite" : "Favorite"} Article {"(" + articleBySlugData.favoritesCount + ")"}</button>
-             </>
-         }
+        </>
       }
+      else {
+        return <>
+          <button onClick={handleFollow} className='btn-article-light'>{articleBySlugData.author.following ? "Unfollow" : "Follow"} Gerome</button>
+          <button onClick={handleFavorite} className='btn-article-green'>{articleBySlugData.favorited ? "Unfavorite" : "Favorite"} Article {"(" + articleBySlugData.favoritesCount + ")"}</button>
+        </>
+      }
+    }
   }
   return (
     <>
@@ -173,12 +172,12 @@ function Comment() {
                 <div className='article-author'>
                   {authInfo.isAuth && <>
                     <Link style={{ display: "inline-block" }} className='user-name' to="/@johndoe">
-                    <img className='avatar' src={articleBySlugData.author.image} alt="johndoe" />
-                  </Link>
-                  <div className='info info-article'>
-                    <Link to="/@johndoe">{articleBySlugData.author.username}</Link>
-                    <time className="date" dateTime="2021-11-24T12:11:08.212Z">{createDate}</time>
-                  </div>
+                      <img className='avatar' src={articleBySlugData.author.image} alt="johndoe" />
+                    </Link>
+                    <div className='info info-article'>
+                      <Link to="/@johndoe">{articleBySlugData.author.username}</Link>
+                      <time className="date" dateTime="2021-11-24T12:11:08.212Z">{createDate}</time>
+                    </div>
                   </>}
                   {buttons()}
                 </div>
@@ -186,14 +185,14 @@ function Comment() {
                 {/*comment from */}
                 {authInfo.isAuth && profileData && <>
                   <div className="comment-card">
-                  <div className="comment-body">
-                    <textarea  value={userComment} onChange={handleComment} placeholder='Write a comment...'></textarea>
+                    <div className="comment-body">
+                      <textarea value={userComment} onChange={handleComment} placeholder='Write a comment...'></textarea>
+                    </div>
+                    <div className="comment-footer">
+                      <img src={profileData.image} alt="" />
+                      <button onClick={handleCommentSubmit}>Post Comment</button>
+                    </div>
                   </div>
-                  <div className="comment-footer">
-                    <img src={profileData.image} alt="" />
-                    <button onClick={handleCommentSubmit}>Post Comment</button>
-                  </div>
-                </div>
                 </>}
                 {/*comments */}
                 {fetchCommentData && fetchCommentData.map((item, index) => {
@@ -214,8 +213,14 @@ function Comment() {
                           </div>
                         </div>
                         {authInfo.isAuth && authInfo.currentUser.username == item.author.username &&
-                          <div className='delete-comment'>
-                            <button value={item.id} onClick={handleDeleteComment}>x</button>
+                          <div className='delete-comment' onClick={()=>{handleDeleteComment(item.id)}}>
+                            <div className="icon-trash" >
+                              <div className="trash-lid" style={{backgroundColor: "var(--text)"}}></div>
+                              <div className="trash-container" style={{backgroundColor: "var(--text)"}}></div>
+                              <div className="trash-line-1"></div>
+                              <div className="trash-line-2"></div>
+                              <div className="trash-line-3"></div>
+                            </div>
                           </div>}
 
                       </div>
