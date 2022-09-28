@@ -188,6 +188,12 @@ input:-webkit-autofill:focus {
 }
 
 @media screen and (max-width: 768px) {
+  .bar-chart{
+    margin-left: 0px !important;
+  }
+  .radar-chart{
+    margin-right: 0px !important;
+  }
   .topnav.responsive {
     position: relative;
   }
@@ -242,5 +248,14 @@ input:-webkit-autofill:focus {
   }
   .info-article time{
     margin-left: 0px !important;
+  }
+  .banner-profile .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner-profile .container .btn-article-light{
+    margin: 0 0 5px 0px !important;
   }
 }
