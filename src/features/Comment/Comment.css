@@ -1,3 +1,4 @@
+
 .banner-article{
     background-color: var(--bg-banner) !important;
     text-align: left;
@@ -53,6 +54,10 @@
     font-family: "source serif pro", serif;
     color: var(--text);
 }
+.banner-author{
+  display: flex;
+  
+}
 /*comment from*/
 .comment-card{
     width: 70%;
@@ -80,6 +85,7 @@
     margin-top: -10px;
     padding-bottom: 3px;
     justify-content: space-between;
+    align-items: center;
 }
 .comment-footer img{
     width: 30px;
@@ -97,10 +103,7 @@
     color: #fff;
     cursor: pointer;
 }
-.delete-comment button{
-    background-color: lightgray;
-    color: #333333;
-}
+
 
 .article-main{
     margin-bottom: 40px;
@@ -109,12 +112,10 @@
 
 
 .icon-trash {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     position: relative;
     overflow: hidden;
-    margin-left: 25px;
-    margin-bottom: 25px;
     cursor: pointer;
   }
 

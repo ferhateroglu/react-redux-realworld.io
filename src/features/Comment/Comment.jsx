@@ -111,9 +111,9 @@ function Comment() {
     if (!authInfo.isAuth) {
       return <>
         <button onClick={() => { navigate("/signUp",) }} className='btn-article-light'>Sign Up</button>
-        <span className='text'> or </span>
+        <span style={{paddingLeft: "3px"}} className='text'> or </span>
         <button onClick={() => { navigate("/signIn",) }} className='btn-article-green'>Sign In</button>
-        <span className='text'> to add comments on this article.</span>
+        <span style={{paddingLeft: "4px"}} className='text'> to add comments on this article.</span>
       </>
     }
     else {
@@ -138,9 +138,9 @@ function Comment() {
         <>
           {/*banner*/}
           <div className="banner banner-article">
-            <div className="container">
+            <div className="container container-comment">
               <h1>{articleBySlugData.title}</h1>
-              <div>
+              <div className='banner-author'>
                 <Link style={{ display: "inline-block" }} className='user-name' to={"/@" + articleBySlugData.author.username}>
                   <img className='avatar' src={articleBySlugData.author.image} alt="johndoe" />
                 </Link>
@@ -213,15 +213,14 @@ function Comment() {
                           </div>
                         </div>
                         {authInfo.isAuth && authInfo.currentUser.username == item.author.username &&
-                          <div className='delete-comment' onClick={()=>{handleDeleteComment(item.id)}}>
-                            <div className="icon-trash" >
+                            <div className="icon-trash" onClick={()=>{handleDeleteComment(item.id)}} >
                               <div className="trash-lid" style={{backgroundColor: "var(--text)"}}></div>
                               <div className="trash-container" style={{backgroundColor: "var(--text)"}}></div>
                               <div className="trash-line-1"></div>
                               <div className="trash-line-2"></div>
                               <div className="trash-line-3"></div>
                             </div>
-                          </div>}
+                        }
 
                       </div>
                     </div>

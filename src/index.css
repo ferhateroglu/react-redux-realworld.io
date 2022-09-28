@@ -228,6 +228,7 @@ input:-webkit-autofill:focus {
   .article-author {
     display: flex !important;
     justify-content: center !important;
+    align-items: center;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -235,8 +236,11 @@ input:-webkit-autofill:focus {
   .comment-footer {
     padding-bottom: 20px !important;
   }
-
-  .info-article time {
-    padding-left: 10px !important;
+  .info-article{
+    display: flex !important;
+    flex-direction: column;
+  }
+  .info-article time{
+    margin-left: 0px !important;
   }
 }
