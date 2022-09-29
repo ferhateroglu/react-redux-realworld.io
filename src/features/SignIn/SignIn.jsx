@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next';
 
 import { login } from "../../store/AuthSlice";
 import "./SignIn.css"
 
 function SignIn() {
+    const {t, i18n} = useTranslation()
     const dispatch = useDispatch()
     const Navigate = useNavigate();
     const { isAuth, error } = useSelector(state => state.auth)// {"isAuth": true,"loading": false,"currentUser": {"email": "ferhat@ferhat1234.com","username": "ferhat","bio": "ornekBio", "image": "ornekBio","token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"},"error": "" }
@@ -48,13 +50,13 @@ function SignIn() {
             <div className="container">
                 <div className="flex-row justify-center">
                     <div className="sign col-6">
-                        <h1>Sign In</h1>
-                        <Link to="/signup">Need an account?</Link>
+                        <h1>{t("signIn.signIn")}</h1>
+                        <Link to="/signup">{t("signIn.needAnAccount")}</Link>
                         {errorList.length > 0 && errorList.map((item, index) => (<div key={index} style={{ color: "red", marginBottom: " 10px" }}>{errorList[index]}</div>))}
                         <form onSubmit={handleSubmit} >
                             <input value={email} onChange={handleEmail} type="name" placeholder='Email' />
                             <input value={password} onChange={handlePassword} type="password" placeholder='Password' />
-                            <button>Sign in</button>
+                            <button>{t("signIn.signIn")}</button>
                         </form>
                     </div>
                 </div>

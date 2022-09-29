@@ -12,7 +12,30 @@
         "readMore": "Daha fazla...",
         "popularTags": "Popüler Etiketler",
         "slug": "Bilginizi paylaşabileceğiniz bir yer."
-
+    },
+    "profile":{
+        "dashboard": "Gösterge Paneli",
+        "editProfileSettings":"Profil Ayarlarını Güncelle",
+        "myArticles": "İçeriklerim",
+        "favoritedArticles": "Favorilerim"
+    },
+    "settings":{
+        "yourSettings":"Ayarlarınız",
+        "updateSettings": "Ayarları Kaydet",
+        "orClickHereToLogout": "Tıkla ve Çıkış Yap"
+    },
+    "newPost":{
+        "publishArticle":"İçeriği Yayınla"
+    },
+    "signIn":{
+        "signIn":"Giriş Yap",
+        "needAnAccount":"bir hesaba mı ihtiyacın var?"
     }
-
+    ,
+    "signUp":{
+        "signUp":"Kayıt Ol",
+        "haveYouAnAccount":"Zaten bir hesabın var mı?"
+    }
 }
+
+

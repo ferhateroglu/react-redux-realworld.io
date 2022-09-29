@@ -1,10 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { register } from '../../store/signUpSlice';
 import "./SignUp.css";
 
 function SignUp() {
+  const {t, i18n} = useTranslation()
+
   const Dispatch = useDispatch()
   const Navigate = useNavigate()
   const { loading, isSucces, error } = useSelector(state => state.register)
@@ -47,15 +51,15 @@ function SignUp() {
       <div className="container">
         <div className="flex-row justify-center">
           <div className="sign col-6">
-            <h1>Sign Up</h1>
-            <Link to="/signin">Have you an account?</Link>
+            <h1>{t("signUp.signUp")}</h1>
+            <Link to="/signin">{t("signUp.haveYouAnAccount")}</Link>
             {errorList.length > 0  && errorList.map((item,index)=>(<div  key={index} style={{color:"red", marginBottom:" 10px"}}>{errorList[index]}</div>))}
             {isSucces && <div style={{color:"#5cb85c", marginBottom:" 10px"}}>user successfully created</div> }
             <form action="">
               <input value={username} onChange={handleUserName} placeholder='Username' type="text" />
               <input value={email} onChange={handleEmail} placeholder='Email' type="text" />
               <input value={password} onChange={handlePassword} type="password" placeholder='Password' />
-              <button onClick={onRegisterHandler}>Sign Up</button>
+              <button onClick={onRegisterHandler}>{t("signUp.signUp")}</button>
             </form>
           </div>
         </div>

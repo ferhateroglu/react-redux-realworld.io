@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { createArticle } from '../../store/articleSlice'
 import "./NewPost.css"
 
 
-
-
-
 function NewPost() {
+  const {t, i18n} = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
@@ -88,7 +87,7 @@ function NewPost() {
                   onChange={handleChange}
                   placeholder='Enter tags' type="text" />
               </div>
-              <button onClick={handleSubmit} >Publish Article</button>
+              <button onClick={handleSubmit} >{t("newPost.publishArticle")}</button>
             </form>
           </div>
         </div>

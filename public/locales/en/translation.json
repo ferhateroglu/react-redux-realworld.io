@@ -12,5 +12,27 @@
         "readMore": "Read more...",
         "popularTags": "Popular Tags",
         "slug": "A place to share your knowledge."
+    },
+    "profile":{
+        "dashboard": "Dashboard",
+        "editProfileSettings":"Edit Profile Settings",
+        "myArticles": "My Articles",
+        "favoritedArticles": "Favorited Articles"
+    },
+    "settings":{
+        "yourSettings":"Your Settings",
+        "updateSettings": "Update Settings",
+        "orClickHereToLogout": "Or Click Here To Logout"
+    },
+    "newPost":{
+        "publishArticle":"Publish Article"
+    },
+    "signIn":{
+        "signIn":"Sign In",
+        "needAnAccount":"Need an account?"
+    },
+    "signUp":{
+        "signUp":"Sign Up",
+        "haveYouAnAccount":"Have you an account?"
     }
 }

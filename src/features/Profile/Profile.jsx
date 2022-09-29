@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Link,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from "react-i18next"
 import { fetchArticles } from '../../store/articleSlice';
 import { fetchProfile, followProfile, unFollowProfile } from '../../store/profileSlice';
 import { Article } from '../../components';
 import "./Profile.css"
 
 function Profile() {
+  const { t, i18n } = useTranslation();
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -68,13 +70,13 @@ function Profile() {
           onClick={goToDashboard}
           style={{float: "right", marginRight: "80px", marginLeft:"10px"}}
           className='btn-article-light'>
-          Dashboard
+          {t("profile.dashboard")}
         </button>
           <button
             onClick={goToSettings}
             style={{float: "right", margin:"0px !important"}}
             className='btn-article-light'>
-            Edit Profile Settings
+              {t("profile.editProfileSettings")}
           </button>
           
           </>
@@ -126,7 +128,7 @@ function Profile() {
                       value={"MyArticles"}
                       type='button'
                       className={"nav-btn" + (activeToggle === "MyArticles" ? " active" : "")}>
-                      My Articles
+                      {t("profile.myArticles")}
                     </button>
                   </li>
                   <li>
@@ -135,7 +137,7 @@ function Profile() {
                       value={"FavoritedArticles"}
                       type='button'
                       className={"nav-btn" + (activeToggle === "FavoritedArticles" ? " active" : "")}>
-                      Favorited Articles
+                      {t("profile.favoritedArticles")}
                     </button>
                   </li>
                 </ul>

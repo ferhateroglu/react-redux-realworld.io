@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
+import {useTranslation} from "react-i18next"
 import { logOut,updateToken,updateUserName } from '../../store/AuthSlice'
 import { fetchProfile, updateProfile,resetUpdateData } from '../../store/profileSlice'
 import "./Settings.css"
 
 function Settings() {
+  const {t, i18n} = useTranslation()
   const dispatch = useDispatch()
   const Navigate = useNavigate()
 
@@ -87,7 +89,7 @@ function Settings() {
     <div className="container">
         <div className="flex-row justify-center">
           <div className="sign settings-page col-6">
-            <h1>Your Settings</h1>
+            <h1>{t("settings.yourSettings")}</h1>
             { err && updateProfileError && <p className='error'>{updateProfileError}</p>}
             <form action="">
               <input
@@ -117,11 +119,11 @@ function Settings() {
                 onChange={handleChange}
                 type="password"
                 placeholder='New Password' />
-              <button onClick={handleSubmit}>Update Settings</button>
+              <button onClick={handleSubmit}>{t("settings.updateSettings")}</button>
             </form>
             <div className='clear'></div>
             <hr />
-            <button onClick={handleLogOut} className='btn-logout'>OR click here to logout</button>
+            <button onClick={handleLogOut} className='btn-logout'>{t("settings.orClickHereToLogout")}</button>
           </div>
         </div>
       </div>
