@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from "react-redux"
 import { fetchArticleBySlug, favoriteArticle, unFavoriteArticle, createComment, fetchComments, deleteComment, deleteArticle } from "../../store/articleSlice"
-import { followProfile, unFollowProfile, fetchProfile } from '../../store/ProfileSlice';
+import { followProfile, unFollowProfile, fetchProfile } from '../../store/profileSlice';
 
 import "./Comment.css";
 

@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArticles } from '../../store/articleSlice';
-import { fetchProfile, followProfile, unFollowProfile } from '../../store/ProfileSlice';
+import { fetchProfile, followProfile, unFollowProfile } from '../../store/profileSlice';
 import { Article } from '../../components';
 import "./Profile.css"
 

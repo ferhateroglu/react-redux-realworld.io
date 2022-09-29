@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 import { logOut,updateToken,updateUserName } from '../../store/AuthSlice'
-import { fetchProfile, updateProfile,resetUpdateData } from '../../store/ProfileSlice'
+import { fetchProfile, updateProfile,resetUpdateData } from '../../store/profileSlice'
 import "./Settings.css"
 
 function Settings() {

@@ -32,7 +32,7 @@ export const unFollowProfile = createAsyncThunk('profiles/username/unfollow',({t
     .catch(err => rejectWithValue(err))
 })
 
-export const ProfileSlice = createSlice({
+export const profileSlice = createSlice({
     name: "profileSlice",
     initialState: {},
     reducers: {
@@ -114,5 +114,5 @@ export const ProfileSlice = createSlice({
 })
 
 
-export default ProfileSlice.reducer;
-export const { resetUpdateData } = ProfileSlice.actions;
+export default profileSlice.reducer;
+export const { resetUpdateData } = profileSlice.actions;

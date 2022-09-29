@@ -4,7 +4,7 @@ import authReducer from "./AuthSlice";
 import articleReducer from "./articleSlice"
 import signUpReducer from './signUpSlice';
 import feedReducer from './feedSlice';
-import profileReducer from './ProfileSlice';
+import profileReducer from './profileSlice';
 import themeReducer from './themeSlice';
 
 export const store = configureStore({
